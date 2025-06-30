@@ -7,9 +7,9 @@ app = Flask(__name__, static_folder='static', template_folder='templates')
 @app.route('/')
 def index():
     # Jika kamu meletakkan index.html di folder 'templates'
-    return render_template('index.html')
+    #return render_template('index.html')
     # Jika kamu meletakkan index.html di folder 'static'
-    # return app.send_static_file('index.html')
+    return app.send_static_file('index.html')
 
 # Contoh API endpoint sederhana
 @app.route('/api/transactions', methods=['GET', 'POST'])
