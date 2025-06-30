@@ -3,13 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengatur Keuangan</title>
-    <link rel="stylesheet" href="static/style.css"> </head>
+    <title>MYMON - Pengatur Keuangan Pribadi</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body>
-    <h1>Selamat Datang di Pengatur Keuangan!</h1>
-    <p>Ini adalah web pengatur keuanganmu.</p>
-    <button id="loadTransactions">Lihat Transaksi</button>
-    <div id="transactionsList"></div>
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/40x40?text=M" alt="MYMON Logo">
+                <span>MYMON</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#">Beranda</a>
+                <a href="#">Fitur</a>
+                <a href="#">Dukungan</a>
+                <a href="#">Untuk Bisnis</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-login">Login</button>
+                <button class="btn btn-signup">Daftar</button>
+            </div>
+        </div>
+    </header>
 
-    <script src="static/script.js"></script> </body>
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1>Kelola Keuanganmu di Satu Tempat</h1>
+            <p class="subtitle">Aplikasi pengatur keuangan pribadi yang mudah dan intuitif.</p>
+            <div class="download-buttons">
+                <button class="btn btn-primary">Mulai Sekarang</button>
+                </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/350x550?text=Mockup+Aplikasi" alt="Mockup Aplikasi MYMON">
+        </div>
+    </main>
+
+    <div class="container main-app-section">
+        <section class="card transaction-form-section">
+            <h2>Tambah Transaksi Baru</h2>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <label for="type">Jenis Transaksi:</label>
+                    <select id="type" name="type" required>
+                        <option value="expense">Pengeluaran</option>
+                        <option value="income">Pemasukan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Jumlah (Rp):</label>
+                    <input type="number" id="amount" name="amount" required min="0" step="1000">
+                </div>
+                <div class="form-group">
+                    <label for="category">Kategori:</label>
+                    <input type="text" id="category" name="category" required list="categorySuggestions">
+                    <datalist id="categorySuggestions">
+                        <option value="Makanan">
+                        <option value="Transportasi">
+                        <option value="Tagihan">
+                        <option value="Gaji">
+                        <option value="Hadiah">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="date">Tanggal:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Deskripsi:</label>
+                    <input type="text" id="description" name="description" placeholder="Misal: Beli makan siang, Gaji bulanan">
+                </div>
+                <button type="submit" class="btn btn-success">Catat Transaksi</button>
+            </form>
+        </section>
+
+        <section class="card transaction-list-section">
+            <h2>Daftar Transaksi</h2>
+            <button id="loadTransactions" class="btn btn-secondary">Refresh Daftar Transaksi</button>
+            <div id="transactionsList">
+                <p>Memuat transaksi...</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="static/script.js"></script>
+    </body>
 </html>
